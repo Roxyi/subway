@@ -1,0 +1,58 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+#map {
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100%;
+}
+
+#about {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    text-decoration: none;
+    border-radius: 10px;
+    color: #eee;
+}
+
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.map-overlay .map-overlay-inner {
+    background: transparent;
+    border: solid 1px #fff;
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.mapboxgl-popup-content {
+    padding: 0px;
+}
+
+.popup_title {
+    font-size: 20px;
+    padding: 15px;
+    color: #000;
+    background: #F2F6FB;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.popup_text {
+    font-size: 15px;
+    padding: 0 15px;
+}
