@@ -1,17 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
-    <title>Subway Ridership Analysis</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="main.css" />
+  <meta charset='utf-8' />
+  <title>Subway Ridership Analysis</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="main.css" />
 </head>
 <body>
 
 <div id='map'></div>
-<a id="about" href="https://github.com/Roxyi/NYC_Property_Sales_HeatMap">Source Code</a>
+
+<div class="layer_selector">
+  <div class="radio-group">
+    <input type="radio" name="selector1" id="opt-1" value="weekday" checked>
+    <label for="opt-1">Weekday</label>
+    <span>|</span>
+    <input type="radio" name="selector1" id="opt-2" value="weekend">
+    <label for="opt-2">Weekend</label>
+    <div class="eye_selector">
+      <p id="dr">Daily Ridership</p>
+      <input type="radio" name="selector2" id="opt-3" value="ridership2016" checked>
+      <div class="eye_subselector">
+        <label for="opt-3"><img class="eye_img">2016</label>
+      </div>
+    </div>
+    <div class="eye_selector">
+      <p id="nr">Ridership Growth</p>
+      <input type="radio" name="selector2" id="opt-4" value="oneYearGrowth">
+      <div class="eye_subselector">
+        <label for="opt-4"><img class="eye_img">2016</label>
+      </div>
+      <input type="radio" name="selector2" id="opt-5" value="fiveYearGrowth">
+      <div class="eye_subselector">
+        <label for="opt-5"><img class="eye_img">2011 - 2016</label>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <span style='background-color: #ff6e6e; width:8px; height:8px;'></span>
+    <span style='background-color: #ff5252; width:20px; height:20px;'></span>
+    <span style='background-color: #ff4040; width:40px; height:40px;'></span>
+  </div>
+  <div class="legend_text">
+    <span id="firstStop"></span>
+    <span id="secondStop" style="margin-left: 10px;"></span>
+    <span id="thirdStop" style="margin-left: 10px;"></span>
+  </div>
+  <a id="about" href="https://github.com/Roxyi/NYC_Property_Sales_HeatMap">Source Code</a>
+</div>
+
+<script src="style.js"></script>
 <script src="main.js"></script>
 
 </body>
