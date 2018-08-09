@@ -44,6 +44,7 @@ body {
 }
 
 .popup_title {
+    margin-top: 0px;
     font-size: 20px;
     padding: 15px;
     color: #000;
@@ -136,7 +137,9 @@ input[type=radio]:checked+.eye_subselector img {
 }
 
 .legend_text{
-    margin-top: -10px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -20px;
     margin-bottom: 10px;
 }
 
