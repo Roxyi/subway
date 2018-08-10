@@ -103,10 +103,6 @@ var controller = {
 		return layerSelectorModel.ramp[layerSelectorModel.currentType];
 	},
 
-	getTime: function() {
-		return 'Weekday';
-	},
-
 	updateMap: function(property, ramp) {
 		map.setPaintProperty('ridership', 'circle-color', mapModel.getStyle(property, ramp).color);
 		map.setPaintProperty('ridership', 'circle-radius', mapModel.getStyle(property, ramp).radius);
