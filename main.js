@@ -153,12 +153,9 @@ var mapView = {
 			var day = daySelected === 'weekday' ? 'Weekday' : 'Weekend';
 			var one_yr_growth = daySelected === 'weekday' ? parseInt(feature.properties.wkday_1yr_ * 100) : parseInt(feature.properties.wknd_1yr_a * 100);
 			var five_yr_growth = daySelected === 'weekday' ? parseInt(feature.properties.wkday_5yr_ * 100) : parseInt(feature.properties.wknd_1yr_a * 100);
-			for (let line of feature.properties.lines.split(',')) {
-				console.log(line);
-			}
 			popup.setLngLat([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
 			.setHTML(`	<p class="popup_title">${feature.properties.Station_Na} | ${day}</p>
-						<div>Lines: <span>${feature.properties.lines.split(',')[0]}</span></p>
+						<p class="popup_text">Lines: <span>${feature.properties.lines}</span></p>
 						<p class="popup_text">Avg. Daily Subway Ridership: <strong>${ridership.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong></p>
 	                  	<p class="popup_text">Rank: <strong>${feature.properties.wkday_rank}</strong></p>
 	                  	<p class="popup_text">In 2016 growth: <strong>${one_yr_growth}%</strong></p>
