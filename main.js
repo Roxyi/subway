@@ -59,9 +59,9 @@ var mapModel = {
 			    	ramp[0],
 			    	1,
 			    	ramp[1],
-			    	4,
+			    	5,
 			    	ramp[2],
-			    	7
+			    	15
 			  	],
 			  	14,
 			  	[
@@ -73,7 +73,7 @@ var mapModel = {
 			    	ramp[1],
 			    	15,
 			    	ramp[2],
-			    	30
+			    	40
 			  	],
 			  	16,
 			  	[
