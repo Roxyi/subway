@@ -2,7 +2,7 @@
 
 ![preview](assets/preview.jpg)
 
-A platform for a detailed analysis on MTA subway ridership.
+A platform for a detailed analysis on MTA subway ridership. Data is from MTA open data. Joined the stops locations and riderships data in QGIS and exported the geojson. Uploaded the geojson to Mapbox Studio and used Mapbox GL JS for the front-end map rendering.
 
 ## Getting Started
 Clone the repo
