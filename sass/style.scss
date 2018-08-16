@@ -1,0 +1,186 @@
+$White: #fff;
+$Quartz: #f2f6fB;
+$CoralRed: #ff4040;
+$Gainsboro: #ddd;
+$DimGray: #666;
+$Charcoal: #454545;
+$Black: #000;
+
+body {
+    margin:0;
+    padding:0;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+#map {
+    position:absolute;
+    top:0;
+    width:100%;
+    height: 100%;
+}
+
+#about {
+    text-decoration: none;
+    color: $DimGray;
+    font-size: 14px;
+    display: none;
+
+    @media screen and (min-width: 415px) {
+        display: block;
+    }
+
+    &:hover {
+        color: $Black;
+    }
+}
+
+.mapboxgl-popup-content {
+    padding: 0px;
+}
+
+.popup_title {
+    margin-top: 0px;
+    font-size: 20px;
+    padding: 15px;
+    color: $Black;
+    background: $Quartz;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.popup_text {
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+.layer_selector {
+    bottom: 40px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: .5s;
+
+    @media screen and (min-width: 415px) {
+        bottom: 50px;
+        left: 50px;
+        height: auto;
+        width: auto;
+        border-radius: 4px;
+        padding: 20px 20px 5px 20px;
+    }
+}
+
+input[type=radio] {
+    display: none;
+    
+    &:checked+label {
+        color: $CoralRed;
+        border-bottom: solid 2px $CoralRed;
+    }
+
+    &:checked+.eye_subselector {
+        label {
+            color: $CoralRed;
+        }
+
+        img {
+            content: url("../assets/eyeIconRed.svg");
+        }
+    }
+
+}
+
+label {
+    color: $Charcoal;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.eye_img {
+    content: url("../assets/eyeIconBlack.svg");
+}
+
+.radio-group {
+    display: none;
+
+    @media screen and (min-width: 415px) {
+        display: block;
+    }
+
+    span {
+        font-weight: 400;
+        color: $Gainsboro;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    p {
+        font-weight: 600;
+        color: $Black;
+        font-size: 15px;
+        margin: 15px 0 0;
+        letter-spacing: 1px;
+    }
+
+    img {
+        width: 15px;
+        height: 15px;
+        margin-top: -4px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+
+
+.eye_subselector {
+    cursor: pointer;
+}
+
+.legend {
+    margin-top: 15px;
+    margin-left: 10px;
+    display: none;
+
+    @media screen and (min-width: 415px) {
+        display: block;
+    }
+
+    span {
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
+
+.legend_text{
+    justify-content: space-evenly;
+    margin-left: -20px;
+    margin-bottom: 10px;
+    display: none;
+
+    @media screen and (min-width: 415px) {
+        display: flex;
+    }
+
+    span {
+        display: inline-block;
+        font-size: 12px;
+        color: $Black;
+        font-weight: 600;
+    }
+}
+
+#legendIcon {
+    display: block;
+
+    @media screen and (min-width: 415px) {
+        display: none;
+    }
+}

@@ -7,6 +7,44 @@ var map = new mapboxgl.Map({
 	zoom: 12
 });
 
+var layerSelector = document.querySelector('.layer_selector');
+var radioGroup = document.querySelector('.radio-group');
+var legend = document.querySelector('.legend');
+var legendText = document.querySelector('.legend_text');
+var legendIcon = document.querySelector('#legendIcon');
+
+layerSelector.addEventListener('click', function(e) {
+	expandLegend();
+});
+
+function expandLegend() {
+	layerSelector.style.cssText = `
+		bottom: 50px;
+        left: 50px;
+        height: auto;
+        width: auto;
+        border-radius: 4px;
+        padding: 20px 20px 5px 20px;`;
+	radioGroup.style.display = 'block';
+	legend.style.display = 'block';
+	legendText.style.display = 'flex';
+	legendIcon.style.display = 'none';
+}
+
+function hideLegend() {
+	layerSelector.style.cssText = `
+		bottom: 40px;
+    	left: 10px;
+    	height: 50px;
+    	width: 50px;
+    	border-radius: 50px;
+        padding: 0;`;
+	radioGroup.style.display = 'none';
+	legend.style.display = 'none';
+	legendText.style.display = 'none';
+	legendIcon.style.display = 'block';
+}
+
 var daySelected = 'weekday';
 
 var popup = new mapboxgl.Popup();
@@ -150,14 +188,17 @@ var mapView = {
 			var one_yr_growth = daySelected === 'weekday' ? parseInt(feature.properties.wkday_1yr_ * 100) : parseInt(feature.properties.wknd_1yr_a * 100);
 			var five_yr_growth = daySelected === 'weekday' ? parseInt(feature.properties.wkday_5yr_ * 100) : parseInt(feature.properties.wknd_1yr_a * 100);
 			popup.setLngLat([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
-			.setHTML(`	<p class="popup_title">${feature.properties.Station_Na} | ${day}</p>
-						<p class="popup_text">Lines: <span>${feature.properties.lines}</span></p>
-						<p class="popup_text">Avg. Daily Subway Ridership: <strong>${ridership.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong></p>
-	                  	<p class="popup_text">Rank: <strong>${feature.properties.wkday_rank}</strong></p>
-	                  	<p class="popup_text">In 2016 growth: <strong>${one_yr_growth}%</strong></p>
-	                  	<p class="popup_text">Last 5 years growth: <strong>${five_yr_growth}%</strong></p>
-				`)
+			.setHTML(`<p class="popup_title">${feature.properties.Station_Na} | ${day}</p>
+				<p class="popup_text">Lines: <span>${feature.properties.lines}</span></p>
+				<p class="popup_text">Avg. Daily Subway Ridership: <strong>${ridership.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong></p>
+	            <p class="popup_text">Rank: <strong>${feature.properties.wkday_rank}</strong></p>
+	            <p class="popup_text">In 2016 growth: <strong>${one_yr_growth}%</strong></p>
+	            <p class="popup_text">Last 5 years growth: <strong>${five_yr_growth}%</strong></p>`)
 			.addTo(map);
+		});
+
+		map.on('click', function(e) {
+			hideLegend();
 		});
 
 		map.on('mouseenter', 'ridership', function() {
@@ -170,7 +211,7 @@ var mapView = {
 	}
 }
 
-document.querySelector('.radio-group').addEventListener('change', function(e) {
+radioGroup.addEventListener('change', function(e) {
 	var selected1 = document.querySelector(`input[name='selector1']:checked`).value;
 	var selected2 = document.querySelector(`input[name='selector2']:checked`).value;
 	controller.updateMap(mapModel[selected1][selected2], layerSelectorModel.ramp[selected2]);

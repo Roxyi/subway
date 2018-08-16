@@ -1,0 +1,28 @@
+{
+  "name": "subway_ridership",
+  "version": "1.0.0",
+  "description": "subway ridership analysis",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roxyi/subway_ridership.git"
+  },
+  "keywords": [
+    "gis",
+    "map"
+  ],
+  "author": "Yi Xu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roxyi/subway_ridership/issues"
+  },
+  "homepage": "https://github.com/Roxyi/subway_ridership#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
