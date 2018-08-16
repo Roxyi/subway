@@ -198,7 +198,9 @@ var mapView = {
 		});
 
 		map.on('click', function(e) {
-			hideLegend();
+			if (window.innerWidth <= 414) {
+				hideLegend();
+			}
 		});
 
 		map.on('mouseenter', 'ridership', function() {
